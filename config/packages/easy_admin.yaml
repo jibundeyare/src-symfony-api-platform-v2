@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Student:
+            class: App\Entity\Student
+            form:
+                fields:
+                    - 'firstname'
+                    - 'lastname'
+                    - 'birthday'
+                    - { property: 'schoolYear', type: 'entity', type_options: { choice_label: 'name' }}
+        SchoolYear:
+            class: App\Entity\SchoolYear
+            form:
+                fields:
+                    - 'name'
+                    - 'startDate'
+                    - 'endDate'
+                    - { property: 'students', type: 'entity', type_options: { choice_label: 'fullName', multiple: true }}
